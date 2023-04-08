@@ -1,26 +1,52 @@
-import { createContext, useEffect, useState } from "react";
-import { LoteriaProps, Props,  } from "../types";
-import loteria from "../services/loteria";
+import { createContext, useContext, useState } from "react";
+import { LoteriaProps, Props, } from "../types";
 
-const Contexto = createContext({} as LoteriaProps);
 
-function Provider({ children }: any) {
-  const [megasena, setMegaSena] = useState({}as Props);
-  const [lotofacil, setlotoFacil] = useState({} as Props);
+interface ResultadoContext {
+  resultado: LoteriaProps,
+  setResultado: (resultado: LoteriaProps) => void
+}
+const Contexto = createContext<ResultadoContext | null>(null);
 
-  useEffect(()=> {
-    (async ()=> {
-      const resp = await loteria.get();
-      setMegaSena(resp.megasena)
-      setlotoFacil(resp.lotofacil)
-    })();
-  },[]);
+
+export default function Provider({ children }: any) {
+  const [resultado, setResultado] = useState<LoteriaProps>({
+    megasena: {
+      acumulado: false,
+      concursoEspecial: false,
+      dataApuracao: "",
+      dataPorExtenso: "",
+      dataProximoConcurso: "",
+      dezenas: [],
+      numeroDoConcurso: 0,
+      quantidadeGanhadores: 0,
+      tipoJogo: "",
+      valorEstimadoProximoConcurso: 0,
+      valorPremio: 0,
+    }, lotofacil: {acumulado: false,
+      concursoEspecial: false,
+      dataApuracao: "",
+      dataPorExtenso: "",
+      dataProximoConcurso: "",
+      dezenas: [],
+      numeroDoConcurso: 0,
+      quantidadeGanhadores: 0,
+      tipoJogo: "",
+      valorEstimadoProximoConcurso: 0,
+      valorPremio: 0,}
+  });
+  // const [lotofacil, setlotoFacil] = useState({} as Props);
 
   return (
-    <Contexto.Provider value={{ megasena,lotofacil }}>
+    <Contexto.Provider value={{ resultado, setResultado }}>
       {children}
     </Contexto.Provider>
   );
 }
 
-export { Contexto, Provider };
+export function useResultado() {
+  const context = useContext(Contexto);
+  if (!context) throw new Error("useResultado must be used within a Provider");
+  const { resultado, setResultado } = context;
+  return { resultado, setResultado };
+}

@@ -17,16 +17,3 @@ export interface Props {
     valorPremio: number,
 
 }
-export interface MegaSenaProps{
-    acumulado: boolean,
-    concursoEspecial: boolean,
-    dataApuracao: string,
-    dataPorExtenso: string,
-    dataProximoConcurso: string,
-    dezenas: string[],
-    numeroDoConcurso: number,
-    quantidadeGanhadores: number,
-    tipoJogo: string,
-    valorEstimadoProximoConcurso: number,
-    valorPremio: number,
-}
