@@ -5,6 +5,7 @@ const Contexto = createContext({} as ResultadoContext);
 
 
 function Provider({ children }: any) {
+  const [loaded,setLoaded] = useState(false)
   const [resultado, setResultado] = useState({
     megasena: {
       acumulado: false,
