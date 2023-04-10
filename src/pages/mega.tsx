@@ -14,9 +14,7 @@ import { Linha } from '../styles/sytle';
 const Mega = () => {
     const { resultado } = useContexto();
     function verficarGanhadores() {
-        let qtd;
-        console.log(resultado.megasena.quantidadeGanhadores);
-        if (resultado.lotofacil.quantidadeGanhadores === 1) {
+        if (resultado.megasena.quantidadeGanhadores === 1) {
             return " GANHADOR"
         }
         return " GANHADORES"

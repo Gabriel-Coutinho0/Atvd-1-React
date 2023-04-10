@@ -15,14 +15,10 @@ const Loto = () => {
     const { resultado } = useContexto();
     
     function verficarGanhadores() {
-        let qtd;
         if (resultado.lotofacil.quantidadeGanhadores === 1) {
-            qtd = " GANHADOR"
+            return " GANHADOR"
         }
-        else {
-            qtd = " GANHADORES"
-        }
-        return qtd
+        return " GANHADORES"
     }
 
 
