@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
-const tarefa: AxiosInstance = axios.create({
+const api: AxiosInstance = axios.create({
     baseURL : "https://servicebus2.caixa.gov.br/portaldeloterias/api/home/ultimos-resultados",
     timeout: 2000,
     headers:{
@@ -8,4 +8,4 @@ const tarefa: AxiosInstance = axios.create({
     }
 })
 
-export default tarefa;
+export default api;

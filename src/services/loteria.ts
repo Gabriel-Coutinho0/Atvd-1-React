@@ -1,8 +1,8 @@
 import {LoteriaProps } from "../types"
-import tarefa from "./tarefa"
+import api from "./api"
 class Loteria{
      async get():Promise<LoteriaProps>{
-       const {data} = await tarefa.get("")
+       const {data} = await api.get("")
        return data
     }
 }

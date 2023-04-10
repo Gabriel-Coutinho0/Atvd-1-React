@@ -1,13 +1,17 @@
-.container{
+.container {
     display: flex;
     margin-top: 50px;
     height: 50vh;
-}
 
+}
 .coluna{
     width: 50%;
 }
-
 .coluna-2{
     width: 50%;
+}
+
+.coluna-3{
+    width: 50%;
+    margin-top: -30px;
 }

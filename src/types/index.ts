@@ -1,3 +1,8 @@
+export interface ResultadoContext {
+    resultado: LoteriaProps,
+    setResultado: Function
+  }
+
 export interface LoteriaProps {
     megasena: Props
     lotofacil: Props

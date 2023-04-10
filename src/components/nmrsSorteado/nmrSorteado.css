@@ -1,8 +1,8 @@
-.coluna-dezenas-mega ul li{ 
+.coluna-dezenas-mega ul li {
     display: inline-block;
     font-weight: 100;
-    color:white;
-    font-size:1.2rem;
+    color: white;
+    font-size: 1.2rem;
     padding: 9px 0px;
     height: 10%;
     width: 8%;
@@ -14,17 +14,18 @@
     font-weight: bold;
 
 }
-.coluna-dezenas-mega ul{
+
+.coluna-dezenas-mega ul {
     margin-block-start: 0em;
     margin-block-end: 0em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    padding-inline-start:0px;
+    padding-inline-start: 0px;
     width: 100%;
- 
+
 }
 
-.coluna-dezenas-loto ul li{
+.coluna-dezenas-loto ul li {
     display: inline-block;
     color: #930089;
     font-size: 1.5rem;
@@ -36,8 +37,10 @@
     font-weight: bold;
     border-bottom: solid 2px #d5d9df
 }
-.coluna-dezenas-loto ul{
-    padding-inline-start:0px;
+
+.coluna-dezenas-loto ul {
+    padding-inline-start: 0px;
     width: 500px;
- 
+
 }
+

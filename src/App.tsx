@@ -1,19 +1,16 @@
 import { useEffect } from 'react';
 import './App.css';
-
 import Home from './pages/home';
 import loteria from './services/loteria';
-import { useResultado } from './context/Contexto';
+import { useContexto } from './hooks';
+import { Provider } from './context/Contexto';
 function App() {
-  const {setResultado} = useResultado()
-  useEffect(()=>{
-    loteria.get()
-    .then((r)=> setResultado(r))
-    console.log("opa");
-    
-  },[setResultado])
+
   return (
-    <Home/>
+    <Provider>
+        <Home/>
+    </Provider>
+  
   );
 }
 
