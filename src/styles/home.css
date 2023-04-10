@@ -1,90 +1,11 @@
 .container{
     display: flex;
+    margin-top: 50px;
+    height: 50vh;
 }
 
 .coluna{
     width: 50%;
-}
-.header-container{
-    display: flex;
-    width: 50%;
-    margin-right: 20px;
-  
-}
-.imagem-header{
-    width: 3em;
-    margin-right: 1em;
-    height: 3em;
-}
-.imagem-header img{
-    height:100%;
- 
-}
-.titulo-mega {
-    display: inline-block;
-    padding-top: 6px;
-    font-size: 1.4em;
-    color:#209869;
-}
-.titulo-mega h3{
-    padding:0;
-     margin:0;
-}
-.descricao-mega{
-    padding: 2em 2em 0em 3em;
-    color:gray
-    
-}
-.mega-valor{
-    color:#209869;
-    padding: 0em 2em 2em 3em;
-}
-.coluna-dezenas ul{
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start:0px;
-    width: 80%;
- 
-}
-
-.coluna-dezenas ul li{ 
-    display: inline-block;
-    font-weight: 100;
-    color:white;
-    font-size:1.2rem;
-    padding: 9px 0px;
-    height: 10%;
-    width: 11%;
-    border-radius: 100%;
-    background-color: #209869;
-    margin-right: 25px;
-    text-align: center;
-    line-height: 2em;
-    font-weight: bold;
-
-}
-.coluna-dezenas ul{
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start:0px;
-    width: 100%;
- 
-}
-.vencedores-mega{
-    color:rgb(0, 92, 169);
-    font-size: 30px;
-}
-.concurso-mega{
-    color:grey;
-
-}
-
-.container-2{
-    display: flex;
 }
 
 .coluna-2{

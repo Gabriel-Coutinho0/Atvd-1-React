@@ -2,8 +2,18 @@
 import trevoMega from '../assets/trevo-megasena.png'
 import trevoLoto from '../assets/trevo-lotofacil.png'
 import '../styles/home.css'
-import { Linha, LotoFacil, MegaSena } from "../styles/sytle";
+import { Linha } from "../styles/sytle";
 import { useResultado } from '../context/Contexto';
+import CabecalhoMega from '../components/cabecalho/cabecalhoMega';
+import CabecalhoLoto from '../components/cabecalho/cabecalhoLoto';
+import Descricao from '../components/descricao/descricao';
+import ValorAcumuladoMega from '../components/valorAcumulado/valorAcumuladoMega';
+import NmrSorteadoMega from '../components/nmrsSorteado/nmrSorteadoMega';
+import Vencedores from '../components/vencedores/vencedores';
+import Concurso from '../components/concurso/concurso';
+import ValorAcumuladoLoto from '../components/valorAcumulado/valorAcumuladoLoto';
+import NmrSorteadoLoto from '../components/nmrsSorteado/nmrSorteadoLoto';
+
 
 const Home = () => {
     // const [response, setResponse] = useState({} as LoteriaProps)
@@ -11,8 +21,17 @@ const Home = () => {
 
     const { resultado } = useResultado();
     let qtd;
-    function verficarGanhadores() {
+    function verficarGanhadoresMega() {
         if (resultado.megasena.quantidadeGanhadores === 1) {
+            qtd = " ganhador"
+        }
+        else {
+            qtd = " ganhadores"
+        }
+        return qtd
+    }
+    function verficarGanhadoresLoto() {
+        if (resultado.lotofacil.quantidadeGanhadores === 1) {
             qtd = " ganhador"
         }
         else {
@@ -27,52 +46,31 @@ const Home = () => {
                     <p>{resultado.megasena.acumulado}</p>
                 )}
                 <div className='coluna'>
-                    <div className='header-container'>
-                        <div className='imagem-header'><img src={trevoMega}></img></div>
-                        <div className='titulo-mega'><h3 >MEGA-SENA</h3></div>
-                    </div>
-                    <div className='descricao-mega'>
-                        Estimativa do prêmio do proximo concurso. Sorteio {resultado.megasena.dataProximoConcurso}:
-                    </div>
-                    <div className='mega-valor'>
-                        <h2>{resultado.megasena.valorEstimadoProximoConcurso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h2>
-                        {/* megaSena.valorEstimadoProximoConcurso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }):"" */}
-                        {/* {resultado.megasena.acumulado ? "ACUMULADO" : ""} */}
-                    </div>
+                    <CabecalhoMega img={trevoMega} titulo="MEGA-SENA" />
+                    <Descricao dado={resultado.megasena.dataProximoConcurso} />
+                    <ValorAcumuladoMega dado={resultado.megasena.valorEstimadoProximoConcurso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} />
                 </div>
                 <div className='coluna'>
-                    <div className="coluna-dezenas">
-                        <ul>{resultado.megasena.dezenas ? resultado.megasena.dezenas.map((elementos) =>
-                            <li>
-                                {elementos}
-                            </li>
-                        ) : ""}</ul>
-                    </div>
-                    <div className='vencedores-mega'>
-                        <p>{resultado.megasena.acumulado ? "ACUMULADO" : resultado.megasena.quantidadeGanhadores + verficarGanhadores()}</p>
-                    </div>
-                    <div className='concurso-mega'>
-                    <p>Concurso {resultado.megasena.numeroDoConcurso}- {resultado.megasena.dataPorExtenso}</p>
-                    </div>
+                    <NmrSorteadoMega dado={resultado.megasena.dezenas} />
+                    <Vencedores dado={resultado.megasena.acumulado} dado2={resultado.megasena.quantidadeGanhadores} info={verficarGanhadoresMega()} />
+                    <Concurso dado={`${resultado.megasena.numeroDoConcurso} - ${resultado.megasena.dataPorExtenso} `} />
                 </div>
             </div>
             <Linha></Linha>
-            <div className='container-2'>
+            <div className='container'>
                 <div className='coluna-2'>
-                    <LotoFacil><img src={trevoLoto}></img> LOTOFÁCIL</LotoFacil>
-                    <p>Estimativa de prêmio do proximo concurso. Sorteio em {resultado.lotofacil.dataProximoConcurso}:</p>
-                    <div>
-                    <p>R$: {resultado.lotofacil.valorEstimadoProximoConcurso}</p>
-                    </div>
+                    <CabecalhoLoto img={trevoLoto} titulo={"LOTOFÁCIL"} ></CabecalhoLoto>
+                    <Descricao dado={resultado.lotofacil.dataProximoConcurso}/>
+                    <ValorAcumuladoLoto dado={resultado.lotofacil.valorEstimadoProximoConcurso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} />
                 </div>
                 <div className='coluna-2'>
-                    <p>{resultado.lotofacil.dezenas}</p>
-                    <p>{resultado.lotofacil.quantidadeGanhadores} GANHADORES</p>
-                    <p>Concurso {resultado.lotofacil.numeroDoConcurso}- {resultado.lotofacil.dataPorExtenso}</p>
+                    <NmrSorteadoLoto dado={resultado.lotofacil.dezenas} />
+                    <Vencedores dado={resultado.lotofacil.acumulado} dado2={resultado.lotofacil.quantidadeGanhadores} info={verficarGanhadoresLoto()}/>
+                    <Concurso dado={`${resultado.lotofacil.numeroDoConcurso} - ${resultado.lotofacil.dataPorExtenso} `} />
 
                 </div>
             </div>
-
+            <Linha/>
 
         </div>
     );

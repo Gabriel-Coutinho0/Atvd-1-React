@@ -1,0 +1,35 @@
+.header-container{
+    display: flex;
+    width: 50%;
+    margin-right: 20px;
+  
+}
+.imagem-header{
+    width: 3em;
+    margin-right: 1em;
+    height: 3em;
+}
+.imagem-header img{
+    height:100%;
+ 
+}
+.titulo-mega {
+    display: inline-block;
+    padding-top: 6px;
+    font-size: 1.4em;
+    color:#209869;
+}
+.titulo-mega h3{
+    padding:0;
+     margin:0;
+}
+.titulo-loto {
+    display: inline-block;
+    padding-top: 6px;
+    font-size: 1.4em;
+    color:#930089;
+}
+.titulo-loto h3{
+    padding:0;
+     margin:0;
+}

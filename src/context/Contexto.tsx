@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { LoteriaProps, Props, } from "../types";
+import { LoteriaProps, } from "../types";
 
 
 interface ResultadoContext {
